@@ -1,4 +1,4 @@
-# Exercises_in_Python
+# Algoritmos en Python
 
 Saludos desde la batayola.
 
