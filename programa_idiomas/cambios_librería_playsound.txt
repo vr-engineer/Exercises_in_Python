@@ -1,0 +1,28 @@
+Reemplazar las líneas de código correspondientes por estas:
+
+
+def winCommand(*command):
+        bufLen = 600
+        buf = c_buffer(bufLen)
+        
+        #command = ' '.join(command).encode('utf-16') # éste
+        command = ' '.join(command) # por éste  
+        
+        errorCode = int(windll.winmm.mciSendStringW(command, buf, bufLen - 1, 0))  
+        if errorCode:
+            errorBuffer = c_buffer(bufLen)
+            windll.winmm.mciGetErrorStringW(errorCode, errorBuffer, bufLen - 1)  
+            exceptionMessage = ('\n    Error ' + str(errorCode) + ' for command:'
+                                
+                                #'\n        ' + command.decode('utf-16') + # éste 
+                                '\n        ' + command + # por éste 
+                                
+                                '\n    ' + errorBuffer.raw.decode('utf-16').rstrip('\0'))
+            logger.error(exceptionMessage)
+            raise PlaysoundException(exceptionMessage)
+        return buf.value
+        
+        
+        
+        
+  Fuente: https://www.codestudyblog.com/cs2201py/40113095112.html
