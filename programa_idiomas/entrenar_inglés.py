@@ -43,12 +43,12 @@ def menu():                                                 #Función del menú
     print("4) Diccionario")
     print("5) Salir")
     opcion=int(input("__"))                                 #Lee la opción elegida por el usuario.
-    while opcion not in (1,2,3,4,5):                      #Garantiza que la opción es una de las posibles.
+    while opcion not in (1,2,3,4,5):                        #Garantiza que la opción es una de las posibles.
         opcion=int(input("__Opción incorrecta\n__"))        #Si no es una de las posibles, vuelve a solicitarla al usuario.
     else:
         return opcion                                       #Si la opción es correcta, la función devuelve el entero introducido por teclado.
 
-def añadir(demo=False,n_cadena=''):                                     #Función para añadir nuevas palabras al fichero (bbdd). Cuenta con un parámetro de entrada por defecto False.
+def añadir(demo=False,n_cadena=''):                         #Función para añadir nuevas palabras al fichero (bbdd). Cuenta con un parámetro de entrada por defecto False.
     
     if demo==False:
         español=input("Escriba el término en español: ")        #español será una variable de tipo cadena que representará un término en español. 
@@ -178,12 +178,12 @@ else:
 mostrar_menu=True                                                            #True para que inicialmente se ejecute el bucle while.
 while mostrar_menu:
 
-    om=menu()                                                                #LLamada a la función menu().
+    om=menu()                                                                #Llamada a la función menu().
 
     if om==1:    
         op1=True                                                             #True para que inicialmente se ejecute el bucle while 
         while op1:
-            añadir()                                                         #LLamada a la función añadir()
+            añadir()                                                         #Llamada a la función añadir()
             op1=bool(input("¿Desea añadir más términos? (x)Sí (ENTER)No  ")) #Si opl es True, se volverá a llamar a la función añadir(). 
         else:
             continue                                                         #Si op1 es False, se vuleve a mostrar el menú. (Se vuelve a ejecutar el bucle while mostrar_menu). 
