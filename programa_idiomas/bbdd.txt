@@ -1,0 +1,22 @@
+chico,lad,sus
+misericordia,mercy,sus
+sentimiento,feeling,sus
+impresionante,awesome,adj
+sorprendente,stunning,adj
+loco,crazy,adj
+por casualidad,by chance,adv
+apenas,hardly,adv
+para siempre,forever,adv
+creer,reckon,ver
+gritar,shout,ver
+comenzar,take up,ver
+engañar a,deceive,ver
+presumir,boast,ver
+alegremente,joyfully,adv
+débil,weak,adj
+sin dinero,penniless,adj
+desprecio,disdain,sus
+educado,well-mannered,adj
+comentar,remark,ver
+torpemente,awkwardly,adv
+aliviar,relieve,ver
