@@ -139,32 +139,31 @@ class Window(Tk):
         cat = 'x'   #To have a different category for sure.
 
         for ob in M:
-            if (self.test_to_search.get() in ob.case) or (self.test_to_search.get() in ob._ID_):
 
-                self.control_skip = StringVar(value = ob.skip)      #Control variable for checkbutton.
-                ob.tk_skip = self.control_skip
-                self.control_iter = StringVar()                     #Control variable for number of iterations.
-                ob.tk_iter = self.control_iter
+            self.control_skip = StringVar(value = ob.skip)      #Control variable for checkbutton.
+            ob.tk_skip = self.control_skip
+            self.control_iter = StringVar()                     #Control variable for number of iterations.
+            ob.tk_iter = self.control_iter
 
-                if cat != ob.category:                              #Si objct.category es diferente a la categoría anterior, se imprime la Label con grupo y categoría
-                    ttk.Label(self.table, text = f' GROUP: {ob.group} - CATEGORY: {ob.category} ', relief=SUNKEN, font=("Helvetica", 11, "bold")).grid(row=f, column=1, sticky='W')
-                    f += 1
-                    cat = ob.category
+            if cat != ob.category:                              #Si objct.category es diferente a la categoría anterior, se imprime la Label con grupo y categoría
+                ttk.Label(self.table, text = f' GROUP: {ob.group} - CATEGORY: {ob.category} ', relief=SUNKEN, font=("Helvetica", 11, "bold")).grid(row=f, column=1, sticky='W')
+                f += 1
+                cat = ob.category
         
-                self.field_iter = ttk.Spinbox(self.table, textvariable = self.control_iter, from_ = 0, to = 300, width = 7)
-                ob.tk_widget_field = self.field_iter                                                                    #Asigno el widget al atributo de la clase Test
-                ob.tk_widget_field.grid(row = f, column = 0, padx = (10,10))
-                ob.tk_widget_field.insert(END, ob.samples)                                                              #para ver texto por defecto
+            self.field_iter = ttk.Spinbox(self.table, textvariable = self.control_iter, from_ = 0, to = 300, width = 7)
+            ob.tk_widget_field = self.field_iter                                                                    #Asigno el widget al atributo de la clase Test
+            ob.tk_widget_field.grid(row = f, column = 0, padx = (10,10))
+            ob.tk_widget_field.insert(END, ob.samples)                                                              #para ver texto por defecto
                 
                 
-                self.check_widget = ttk.Checkbutton(self.table, text = ob.case, variable = self.control_skip, onvalue = '0', offvalue = '1')
-                ob.tk_widget_check = self.check_widget
-                ob.tk_widget_check.grid(row = f, column = 1, sticky = 'W')
+            self.check_widget = ttk.Checkbutton(self.table, text = ob.case, variable = self.control_skip, onvalue = '0', offvalue = '1')
+            ob.tk_widget_check = self.check_widget
+            ob.tk_widget_check.grid(row = f, column = 1, sticky = 'W')
 
-                f+=1
+            f+=1
 
-                self.canvas.update_idletasks()                              # nos permite actualizar el scroll al ir rellenando los widgets
-                self.canvas.config(scrollregion = self.table.bbox())    
+            self.canvas.update_idletasks()                              # nos permite actualizar el scroll al ir rellenando los widgets
+            self.canvas.config(scrollregion = self.table.bbox())    
                 
         # ++++ - To init -
 
