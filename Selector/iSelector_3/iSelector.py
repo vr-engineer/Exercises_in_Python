@@ -302,9 +302,9 @@ class Window(Tk):
                 print("Saving iterations ...")
                 self.feedback.set("Saving iterations ...")
                 file_iters_selection=open(path_file_iters_template,'w', encoding='utf-8')
-                file_iters_selection.write('{0}\n{1}{2}\n{3}{4}{5}{6}{7}{8}{9}\n'.format("module_body Q_ITERATIONS 1.0 implementation {\n",
-                                                                                         "# TEST.CASE.STEP		NUMBER OF ITERATIONS\n",
-                                                                                         "#----------------------------------------------------------------------------\n"))
+                file_iters_selection.write('{0}\n{1}{2}\n\n'.format("module_body Q_ITERATIONS 1.0 implementation {\n",
+                                                                    "# TEST.CASE.STEP		NUMBER OF ITERATIONS\n",
+                                                                    "#----------------------------------------------------------------------------\n"))
 
                 before_test = 'x' #To avoid duplicates IDs in iterations file.
                 for ob in M:
