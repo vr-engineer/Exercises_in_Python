@@ -22,7 +22,7 @@ ventana.title("Viaje selección") #Sería lo mismo que hacer -> ventana=tk.Tk(cl
 
 
 # --- Imagen ---
-imagen=tk.PhotoImage(file='INDRA_AIR_AUTOMATION_marco.png')
+imagen=tk.PhotoImage(file='AIR_AUTOMATION_marco.png')
 ttk.Label(ventana, image=imagen).pack()
 
 # --- icono de la ventana ----
