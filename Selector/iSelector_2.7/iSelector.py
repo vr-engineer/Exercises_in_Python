@@ -129,34 +129,33 @@ class Window(Tk):
         cat = 'x'   #To have a different category for sure.
 
         for ob in M:
-            if (self.test_to_search.get() in ob.case) or (self.test_to_search.get() in ob._ID_):
 
-                self.control_skip = StringVar(value = ob.skip)      #Control variable for checkbutton. It will be initialized with default skip value.
-                ob.tk_skip = self.control_skip                      #We save variable control_skip per each test to avoid be overridden.
-                self.control_iter = StringVar()                     #Control variable for number of iterations.
-                ob.tk_iter = self.control_iter                      #We save variable control_iter per each test to avoid be overridden.
+            self.control_skip = StringVar(value = ob.skip)      #Control variable for checkbutton. It will be initialized with default skip value.
+            ob.tk_skip = self.control_skip                      #We save variable control_skip per each test to avoid be overridden.
+            self.control_iter = StringVar()                     #Control variable for number of iterations.
+            ob.tk_iter = self.control_iter                      #We save variable control_iter per each test to avoid be overridden.
 
-                if cat != ob.category:
-                    #A new cathegory label is only written if next cathegory is different.
-                    ttk.Label(self.table, text = " GROUP: {0} - CATEGORY: {1} ".format(ob.group,ob.category), relief=SUNKEN, font=("Helvetica", 11, "bold")).grid(row=f, column=1, sticky='W', pady = (5,5))
-                    f += 1
-                    cat = ob.category
+            if cat != ob.category:
+                #A new cathegory label is only written if next cathegory is different.
+                ttk.Label(self.table, text = " GROUP: {0} - CATEGORY: {1} ".format(ob.group,ob.category), relief=SUNKEN, font=("Helvetica", 11, "bold")).grid(row=f, column=1, sticky='W', pady = (5,5))
+                f += 1
+                cat = ob.category
         
-                self.field_iter = Spinbox(self.table, textvariable = self.control_iter, from_ = 0, to = 300, width = 7)
-                ob.tk_widget_field = self.field_iter                                                                        #Asigno el widget al atributo de la clase Test
-                ob.tk_widget_field.grid(row = f, column = 0, padx = (10,10))
-                ob.tk_widget_field.delete(0, END)                                                                           #This is needy in Python2.7 to clean field of Spinbox.
-                ob.tk_widget_field.insert(END, ob.samples)                                                                  #To show a default value of samples.
+            self.field_iter = Spinbox(self.table, textvariable = self.control_iter, from_ = 0, to = 300, width = 7)
+            ob.tk_widget_field = self.field_iter                                                                        #Asigno el widget al atributo de la clase Test
+            ob.tk_widget_field.grid(row = f, column = 0, padx = (10,10))
+            ob.tk_widget_field.delete(0, END)                                                                           #This is needy in Python2.7 to clean field of Spinbox.
+            ob.tk_widget_field.insert(END, ob.samples)                                                                  #To show a default value of samples.
                 
                 
-                self.check_widget = Checkbutton(self.table, text = ob.case, variable = self.control_skip, onvalue = '0', offvalue = '1')
-                ob.tk_widget_check = self.check_widget
-                ob.tk_widget_check.grid(row = f, column = 1, sticky = 'W')
+            self.check_widget = Checkbutton(self.table, text = ob.case, variable = self.control_skip, onvalue = '0', offvalue = '1')
+            ob.tk_widget_check = self.check_widget
+            ob.tk_widget_check.grid(row = f, column = 1, sticky = 'W')
 
-                f+=1
+            f+=1
 
-                self.canvas.update_idletasks()                              # It allows to update scrollbar meanwhile new widget are created at the same time.
-                self.canvas.config(scrollregion = self.table.bbox())    
+            self.canvas.update_idletasks()                              # It allows to update scrollbar meanwhile new widget are created at the same time.
+            self.canvas.config(scrollregion = self.table.bbox())    
                 
         # ++++ - To init -
 
