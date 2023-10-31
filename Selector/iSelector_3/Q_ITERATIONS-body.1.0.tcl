@@ -3,14 +3,6 @@ module_body Q_ITERATIONS 1.0 implementation {
 # TEST.CASE.STEP		NUMBER OF ITERATIONS
 #----------------------------------------------------------------------------
 
-	# max number of iteration for general TCFs
-	dict set v_possible_iterations	"0"		""
-	# max number of iteration for TID TCFs : 386, 397, 398, 384, 407, 408
-	dict set v_possible_iterations	""		""
-	# max number of iteration for the next TCFs: 385, 409, 412, 413, 416, 417, 504, 553,
-	dict set v_possible_iterations	""		""
-	#
-
     dict set v_iterations  "003.001.001" "3"
     dict set v_iterations  "003.001.012" "3"
     dict set v_iterations  "003.001.015" "3"
